@@ -1,0 +1,6 @@
+parameters:
+    flows:
+        test1:
+            - App\PipeAndFilters\Filters\StartFlow\StartFlowStage
+            - App\PipeAndFilters\Filters\AddList\AddListStage
+            - App\PipeAndFilters\Filters\EndFlow\EndFlowStage

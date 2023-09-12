@@ -2,6 +2,11 @@ framework:
     messenger:
         failure_transport: failed
 
+        buses:
+            flow.bus:
+                middleware:
+                    - dispatch_after_current_bus
+                    - App\PipeAndFilters\Middleware\RunNextMiddleware
         transports:
             # https://symfony.com/doc/current/messenger.html#transport-configuration
             async:
@@ -19,6 +24,7 @@ framework:
             Symfony\Component\Mailer\Messenger\SendEmailMessage: async
             Symfony\Component\Notifier\Message\ChatMessage: async
             Symfony\Component\Notifier\Message\SmsMessage: async
+#            App\PipeAndFilters\Filters\StartFlow\StartFlowStage: sync
 
             # Route your messages to the transports
             # 'App\Message\YourMessage': async

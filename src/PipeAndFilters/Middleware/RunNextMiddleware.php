@@ -13,7 +13,7 @@ class RunNextMiddleware implements MiddlewareInterface
 {
     public function __construct(
         private readonly MessageBusInterface $flowBus,
-        private array $flows,
+        private readonly array $flows,
     ) {
     }
 
